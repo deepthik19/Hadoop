@@ -17,3 +17,36 @@ Now set the environment variables:
 2. Edit Path variable and add path to bin and sbin folders
 
 Finally replace your bin folder with the bin folder contents downloaded from here
+
+To check hadoop is installed right:
+Open command prompt and run:
+>hadoop
+
+>hdfs namenode -format
+
+If you see no errors, everything is fine
+
+Now to start hadoop:
+In cmd, go to hadoop directory and run below commands.
+
+>etc\hadoop\hadoop-env.cmd
+>sbin\start-dfs.cmd
+>sbin\start-yarn.cmd
+
+
+To run the java application for MapReduce:
+
+Create input folder on hdfs to upload input csv/txt files unsing cmd.
+>hdfs dfs -mkdir -p user/Deepthi/input/
+>hdfs dfs -copyFromLocal C:/geosales.csv user/Deepthi/input
+>hdfs dfs -ls user/Deepthi/input
+Found 1 items
+-rw-r--r--   1 Deepthi supergroup   14873825 2021-08-01 20:27 user/Deepthi/input/geosales.csv
+
+Below command can be used to remove an files/jar/csv/etc
+>hdfs dfs -rm input
+
+
+In cmd, go to the directory where the application jar is present and run (hadoop <app jar name> <input file path with name in hdfs file system> <path of output directory where we wnat our output to be saved>):
+
+>hadoop jar Testing3.jar /user/Deepthi/geosales.csv /user/Deepthi/user/Deepthi/output
