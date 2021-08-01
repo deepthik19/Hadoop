@@ -33,6 +33,10 @@ In cmd, go to hadoop directory and run below commands.
 >sbin\start-dfs.cmd
 >sbin\start-yarn.cmd
 
+Validate by opening below URLs in browser:
+http://localhost:8088/
+http://localhost:9870/ -> Utilities -> Browse the file system for checking hdfs file system
+For logs: http://localhost:9870/logs/userlogs/
 
 To run the java application for MapReduce:
 
